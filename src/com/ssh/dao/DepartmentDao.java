@@ -7,6 +7,8 @@ public interface DepartmentDao {
 
 	int findCount();
 
+
+
 	List<Department> findByPage(int begin, int pageSize);
 
 	void save(Department department);
