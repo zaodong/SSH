@@ -47,6 +47,10 @@
     <bean id="departmentAction" class="com.ssh.action.DepartmentAction" scope="prototype">
         <property name="departmentService" ref="departmentService"></property>
     </bean>
+    <!-- 配置工具类 -->
+    <bean id="hibernateUtil" class="com.ssh.util.HibernateUtil">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
     <!-- 配置业务层的类 -->
     <bean id="employeeService" class="com.ssh.service.impl.EmployeeServiceImpl">
         <property name="employeeDao" ref="employeeDao"></property>
@@ -56,10 +60,12 @@
     </bean>
     <!-- 配置DAO的类 -->
     <bean id="employeeDao" class="com.ssh.dao.impl.EmployeeDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory"></property>
+
+        <property name="hibernateUtil" ref="hibernateUtil"></property>
     </bean>
     <bean id="departmentDao" class="com.ssh.dao.impl.DepartmentDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory"></property>
+
+        <property name="hibernateUtil" ref="hibernateUtil"></property>
     </bean>
     <!-- 配置事务管理器 -->
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">

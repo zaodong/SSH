@@ -37,7 +37,7 @@
         <result name="editSuccess">/frame/editEmployee.jsp</result>
         <result name="updateSuccess" type="redirectAction">employee_findAll.action</result>
         <result name="deleteSuccess" type="redirectAction">employee_findAll.action</result>
-        <allowed-methods>login</allowed-methods>
+        <allowed-methods>login,findAll,saveUI,save,edit,update,delete</allowed-methods>
     </action>
     <action name="department_*" class="departmentAction" method="{1}">
         <result name="findAll">/frame/listDep.jsp</result>
@@ -47,6 +47,7 @@
         <result name="editSuccess">/frame/editDepartment.jsp</result>
         <result name="updateSuccess" type="redirectAction">department_findAll.action</result>
         <result name="deleteSuccess" type="redirectAction">department_findAll.action</result>
+        <allowed-methods>findAll,saveUI,save,edit,update,delete</allowed-methods>
     </action>
 
 </package>
